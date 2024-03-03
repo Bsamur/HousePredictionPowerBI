@@ -1,0 +1,1361 @@
+{
+  "compatibilityLevel": 1567,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"cleaned_house_prediction_data\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.124.1052.0 (23.12)"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "tr-TR",
+    "cultures": [
+      {
+        "name": "tr-TR",
+        "linguisticMetadata": {
+          "content": {
+            "DynamicImprovement": "HighConfidence",
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "DateTableTemplate_735fa209-13ee-4181-bfac-804c85a77bf3",
+        "annotations": [
+          {
+            "name": "__PBI_TemplateDateTable",
+            "value": "true"
+          },
+          {
+            "name": "DefaultItem",
+            "value": "DateHierarchy"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Date",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "dataCategory": "PaddedDateTableDates",
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "isHidden": true,
+            "isNameInferred": true,
+            "lineageTag": "e4d9c321-3a13-41e3-b2e6-9b227b09fa52",
+            "sourceColumn": "[Date]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Yıl",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Year"
+              }
+            ],
+            "dataCategory": "Years",
+            "dataType": "int64",
+            "expression": "YEAR([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "d37649e1-2385-44f1-b4c4-69580eb50f57",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "MonthNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "MonthNumber"
+              }
+            ],
+            "dataCategory": "MonthOfYear",
+            "dataType": "int64",
+            "expression": "MONTH([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "6f24fc46-a253-4eff-a021-81cfef58697f",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Ay",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Month"
+              }
+            ],
+            "dataCategory": "Months",
+            "dataType": "string",
+            "expression": "FORMAT([Date], \"MMMM\")",
+            "isHidden": true,
+            "lineageTag": "344d93c1-ced6-4ce3-a0d9-73d49b17af90",
+            "sortByColumn": "MonthNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "QuarterNo",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "QuarterNumber"
+              }
+            ],
+            "dataCategory": "QuarterOfYear",
+            "dataType": "int64",
+            "expression": "INT(([MonthNo] + 2) / 3)",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "7fb05ba0-8dea-414d-8ce9-385efcdfb9e0",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Çeyrek",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Quarter"
+              }
+            ],
+            "dataCategory": "Quarters",
+            "dataType": "string",
+            "expression": "\"Çey \" & [QuarterNo]",
+            "isHidden": true,
+            "lineageTag": "b92cffe4-d14c-4bba-9202-353221f6e585",
+            "sortByColumn": "QuarterNo",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "Gün",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "TemplateId",
+                "value": "Day"
+              }
+            ],
+            "dataCategory": "DayOfMonth",
+            "dataType": "int64",
+            "expression": "DAY([Date])",
+            "formatString": "0",
+            "isHidden": true,
+            "lineageTag": "6a79f7d1-04e0-42b9-a324-cc3b862ecc9b",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "hierarchies": [
+          {
+            "name": "Tarih Hiyerarşisi",
+            "annotations": [
+              {
+                "name": "TemplateId",
+                "value": "DateHierarchy"
+              }
+            ],
+            "levels": [
+              {
+                "name": "Yıl",
+                "column": "Yıl",
+                "lineageTag": "be337ba6-d233-4985-a8b5-e573c336a8c1",
+                "ordinal": 0
+              },
+              {
+                "name": "Çeyrek",
+                "column": "Çeyrek",
+                "lineageTag": "b013fcf1-d25d-44f8-84ae-c8b98ba184d5",
+                "ordinal": 1
+              },
+              {
+                "name": "Ay",
+                "column": "Ay",
+                "lineageTag": "bc7bf44a-8b0b-491c-9114-4b48addbd674",
+                "ordinal": 2
+              },
+              {
+                "name": "Gün",
+                "column": "Gün",
+                "lineageTag": "0a09b4b8-a7ce-474a-a451-7a54ab616107",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "d54947d3-85d8-46b0-b97e-02e61fc45e24"
+          }
+        ],
+        "isHidden": true,
+        "isPrivate": true,
+        "lineageTag": "4bd1a70a-6a61-4957-8fe1-3eb3938656b3",
+        "partitions": [
+          {
+            "name": "DateTableTemplate_735fa209-13ee-4181-bfac-804c85a77bf3",
+            "mode": "import",
+            "source": {
+              "expression": "Calendar(Date(2015,1,1), Date(2015,1,1))",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "cleaned_house_prediction_data",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "14ecf853-9a15-4fbb-a60f-0f7365ca3871",
+            "sourceColumn": "Id",
+            "summarizeBy": "count"
+          },
+          {
+            "name": "MSSubClass",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "609a5a4c-9234-41d1-ba2a-1ee9e0d0c801",
+            "sourceColumn": "MSSubClass",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "MSZoning",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2d44e794-70bc-4488-8070-73661b14e78b",
+            "sourceColumn": "MSZoning",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LotFrontage",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "e74fa8cd-a7e8-479e-8032-ca96c7579477",
+            "sourceColumn": "LotFrontage",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "LotArea",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "22393753-b5e9-4e10-90a4-643c13f6d195",
+            "sourceColumn": "LotArea",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Street",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "838fd1b1-ae2e-407c-bfdc-f0784b1cea43",
+            "sourceColumn": "Street",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LotShape",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2daa0203-0900-4169-9f6b-3004779d5632",
+            "sourceColumn": "LotShape",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LandContour",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6dd43001-3642-4e42-88b8-14c3de5a8497",
+            "sourceColumn": "LandContour",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Utilities",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cd9703aa-7cd1-488e-83c9-33f12834b4b1",
+            "sourceColumn": "Utilities",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LotConfig",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "254bf762-7a3f-45bc-a8b1-07a483e786ac",
+            "sourceColumn": "LotConfig",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LandSlope",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "257132eb-dcf9-4f10-8a80-85ce6b1e34d5",
+            "sourceColumn": "LandSlope",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Neighborhood",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5a126fde-81d6-48c2-8d95-f5992a5ee04b",
+            "sourceColumn": "Neighborhood",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Condition1",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "68cb4e00-f817-4074-83ad-c1f464eae460",
+            "sourceColumn": "Condition1",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Condition2",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3f8db908-48be-4d2d-a87b-d52363e08c37",
+            "sourceColumn": "Condition2",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "BldgType",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "36d74c6e-5b9a-448b-bd00-de3d39cbc581",
+            "sourceColumn": "BldgType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "HouseStyle",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a15ae699-da5d-47ea-af9a-5142026102f9",
+            "sourceColumn": "HouseStyle",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OverallQual",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "f1156de5-ad24-4832-89bb-fc44ccf3e59a",
+            "sourceColumn": "OverallQual",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "OverallCond",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "46bdebb5-90f4-484f-b0d2-544c5ea0813b",
+            "sourceColumn": "OverallCond",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "YearBuilt",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "1cfdfdeb-8760-4a10-9ad4-c206ff2cfdff",
+            "sourceColumn": "YearBuilt",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "YearRemodAdd",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "1bcb4d45-4c07-4e7e-96aa-5ff75c36cdc8",
+            "sourceColumn": "YearRemodAdd",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "RoofStyle",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d1dde80c-5efb-47de-9799-f94a01ab4445",
+            "sourceColumn": "RoofStyle",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RoofMatl",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "00b9ec36-7184-49a6-bbc2-247534854fd7",
+            "sourceColumn": "RoofMatl",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Exterior1st",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4668a844-de86-4024-87ca-f80aacc8f0fc",
+            "sourceColumn": "Exterior1st",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Exterior2nd",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9baf5621-564b-4f3c-9a94-43f7450060a7",
+            "sourceColumn": "Exterior2nd",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MasVnrType",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "94e2f62c-eb89-4b20-8354-305be5a25f5c",
+            "sourceColumn": "MasVnrType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MasVnrArea",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ac64fcd1-6047-498b-a233-b27a8a7fbf1a",
+            "sourceColumn": "MasVnrArea",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ExterQual",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "54a88d6d-b1d8-4bc0-a06a-9f95984211b8",
+            "sourceColumn": "ExterQual",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ExterCond",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d7acb59f-a8bb-4c09-85d4-d2107e64e7df",
+            "sourceColumn": "ExterCond",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Foundation",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e2aff8cf-0265-4a22-9479-1fdc01b4c0fa",
+            "sourceColumn": "Foundation",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "BsmtQual",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2d7ef5fd-5990-4af4-a8c6-2486b18fc8e4",
+            "sourceColumn": "BsmtQual",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "BsmtCond",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "eb082414-b83b-45c6-bf1b-e017d6998aaa",
+            "sourceColumn": "BsmtCond",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "BsmtExposure",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b9014fb5-57b6-4388-b385-c127d093bffc",
+            "sourceColumn": "BsmtExposure",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "BsmtFinType1",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3e23a453-2a28-4734-84a0-17371d1b9d8e",
+            "sourceColumn": "BsmtFinType1",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "BsmtFinSF1",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e4eb7417-185c-4836-bfe1-9b748f18c417",
+            "sourceColumn": "BsmtFinSF1",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "BsmtFinType2",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "086bb81b-ce5c-4c76-a2cc-9bc1c9bd1f85",
+            "sourceColumn": "BsmtFinType2",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "BsmtFinSF2",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "f057f550-08d5-4be4-9539-f384a84757e5",
+            "sourceColumn": "BsmtFinSF2",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "BsmtUnfSF",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "c8c1106b-ce1d-418b-b97a-e71149cc320f",
+            "sourceColumn": "BsmtUnfSF",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TotalBsmtSF",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "41a8e0d0-2a97-418d-b151-21872184da5a",
+            "sourceColumn": "TotalBsmtSF",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Heating",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "480e7b70-2358-49a5-b4e7-400f0cdfc481",
+            "sourceColumn": "Heating",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "HeatingQC",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a8a03c32-d053-4042-a380-c814424b3972",
+            "sourceColumn": "HeatingQC",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CentralAir",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5d400a7c-82b5-46b4-a662-fb5006e976cf",
+            "sourceColumn": "CentralAir",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Electrical",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "edef9e8a-b78d-40b0-b955-96273acb11cf",
+            "sourceColumn": "Electrical",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "1stFlrSF",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b0e25390-c149-4f9a-b3c2-39858dc6dd1f",
+            "sourceColumn": "1stFlrSF",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "2ndFlrSF",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "34a887ee-a23c-4404-a8e7-1308dc02369d",
+            "sourceColumn": "2ndFlrSF",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "LowQualFinSF",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "594b35d8-ff8f-4726-9b60-6bfe49ddbe1b",
+            "sourceColumn": "LowQualFinSF",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "GrLivArea",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "fda70fae-8a7b-42f6-b2c5-08472a196ae2",
+            "sourceColumn": "GrLivArea",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "BsmtFullBath",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "3e52f984-962c-4600-9c47-c6a2bc53d81d",
+            "sourceColumn": "BsmtFullBath",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "BsmtHalfBath",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "5036f6e1-fd13-4345-a0b2-82f344f3ef0c",
+            "sourceColumn": "BsmtHalfBath",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "FullBath",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "eec4a0d1-91a1-4d61-88a9-f7f3562ff1e3",
+            "sourceColumn": "FullBath",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "HalfBath",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "fac78883-ca37-47e8-95c8-9bfc2e6ad4ac",
+            "sourceColumn": "HalfBath",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "BedroomAbvGr",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "7178b50b-36fa-4259-8294-a0ce86bb6d82",
+            "sourceColumn": "BedroomAbvGr",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "KitchenAbvGr",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "7db0ba5a-3ec8-491f-85e8-fc99e9910f02",
+            "sourceColumn": "KitchenAbvGr",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "KitchenQual",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "2a0a20e0-2ecc-44cb-9f85-e178a0176503",
+            "sourceColumn": "KitchenQual",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TotRmsAbvGrd",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "108b820c-24c8-41a3-bafa-5b728656ffc8",
+            "sourceColumn": "TotRmsAbvGrd",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Functional",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "627e82f7-77ba-46f4-9510-e79053322231",
+            "sourceColumn": "Functional",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Fireplaces",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "58e9bbb1-85d4-4938-ab74-268d06bd9804",
+            "sourceColumn": "Fireplaces",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "FireplaceQu",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e842542a-f000-4d71-8763-887072462951",
+            "sourceColumn": "FireplaceQu",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GarageType",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "97f01276-9bf9-4b3c-ba5c-e7bb3560016b",
+            "sourceColumn": "GarageType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GarageYrBlt",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "fb43c676-9e31-45de-afa3-3ded03fd8899",
+            "sourceColumn": "GarageYrBlt",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "GarageFinish",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f6f33f94-f3bd-49a4-a290-8ac3e24e8ac8",
+            "sourceColumn": "GarageFinish",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GarageCars",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "44ce5e5e-15ed-4e41-a35c-fbdfd0a2acac",
+            "sourceColumn": "GarageCars",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "GarageArea",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e0eab56a-96d5-42c9-83ab-079208acb37a",
+            "sourceColumn": "GarageArea",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "GarageQual",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "325a75b6-3bd4-4f32-87f0-bfa5b81597d8",
+            "sourceColumn": "GarageQual",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GarageCond",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d8c2958c-0530-4065-b436-33ad86f14ec6",
+            "sourceColumn": "GarageCond",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PavedDrive",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "200e5433-c1e0-45ba-9a5b-3a94a935f907",
+            "sourceColumn": "PavedDrive",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "WoodDeckSF",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "59cee690-f762-42b9-a274-8f0e374a6f84",
+            "sourceColumn": "WoodDeckSF",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "OpenPorchSF",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "aa244cea-6f2d-4633-bdd3-05532b74ae4d",
+            "sourceColumn": "OpenPorchSF",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "EnclosedPorch",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "e01cf5c7-078e-492e-9d53-3a42570c167c",
+            "sourceColumn": "EnclosedPorch",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "3SsnPorch",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "c53bab91-1820-472d-94a7-924b68cc4173",
+            "sourceColumn": "3SsnPorch",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "ScreenPorch",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "daa4e36c-f249-4a86-91d7-a8df013e7513",
+            "sourceColumn": "ScreenPorch",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "PoolArea",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "73b9fc4d-358b-4e15-94f3-9ecf8c640593",
+            "sourceColumn": "PoolArea",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "MiscVal",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "70cd9c3e-e69b-41f1-8b75-cdb4a18a9f41",
+            "sourceColumn": "MiscVal",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "MoSold",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "d5dfde2b-fd8f-4ee1-a546-1aee17ed54a4",
+            "sourceColumn": "MoSold",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "YrSold",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "b302422f-6af7-4e0f-8cc0-2570a1f4d675",
+            "sourceColumn": "YrSold",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "SaleType",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4f8716ce-cf19-4e9e-a178-e837a3b3c94c",
+            "sourceColumn": "SaleType",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SaleCondition",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6d390d20-d973-4bde-816f-63da98c8b45b",
+            "sourceColumn": "SaleCondition",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SalePrice",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "ed885699-02cb-4d86-b574-3b44c641061e",
+            "sourceColumn": "SalePrice",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "4483d38f-1776-4c15-9501-2b35ba5b4b0f",
+        "measures": [
+          {
+            "name": "Average SalePrice by OverallQual",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "AVERAGE(cleaned_house_prediction_data[SalePrice])",
+            "lineageTag": "7fd1d5c9-dcdc-4b16-aacf-31d35c79a4dc"
+          },
+          {
+            "name": "Year_Filter",
+            "expression": "CALCULATE(COUNTROWS('cleaned_house_prediction_data'), cleaned_house_prediction_data[YrSold]=SELECTEDVALUE(cleaned_house_prediction_data[YrSold]))",
+            "formatString": "0",
+            "lineageTag": "f4f4e8ea-fb68-416f-b3dc-1fc1ebb6ed25"
+          },
+          {
+            "name": "BedroomFilter",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    COUNTROWS('cleaned_house_prediction_data'),",
+              "    cleaned_house_prediction_data[BedroomAbvGr] = SELECTEDVALUE(cleaned_house_prediction_data[BedroomAbvGr])",
+              ")",
+              ""
+            ],
+            "formatString": "0",
+            "lineageTag": "1b3eb510-7f0e-4d51-a9e9-c3da66c96f34"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "cleaned_house_prediction_data",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Kaynak = Csv.Document(File.Contents(\"C:\\Users\\bsamur\\Desktop\\cleaned_house_prediction_data.csv\"),[Delimiter=\",\", Columns=77, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Tanıtılan Üst Bilgiler\" = Table.PromoteHeaders(Kaynak, [PromoteAllScalars=true]),",
+                "    #\"Değiştirilen Tür\" = Table.TransformColumnTypes(#\"Tanıtılan Üst Bilgiler\",{{\"Id\", Int64.Type}, {\"MSSubClass\", Int64.Type}, {\"MSZoning\", type text}, {\"LotFrontage\", type number}, {\"LotArea\", Int64.Type}, {\"Street\", type text}, {\"LotShape\", type text}, {\"LandContour\", type text}, {\"Utilities\", type text}, {\"LotConfig\", type text}, {\"LandSlope\", type text}, {\"Neighborhood\", type text}, {\"Condition1\", type text}, {\"Condition2\", type text}, {\"BldgType\", type text}, {\"HouseStyle\", type text}, {\"OverallQual\", Int64.Type}, {\"OverallCond\", Int64.Type}, {\"YearBuilt\", Int64.Type}, {\"YearRemodAdd\", Int64.Type}, {\"RoofStyle\", type text}, {\"RoofMatl\", type text}, {\"Exterior1st\", type text}, {\"Exterior2nd\", type text}, {\"MasVnrType\", type text}, {\"MasVnrArea\", Int64.Type}, {\"ExterQual\", type text}, {\"ExterCond\", type text}, {\"Foundation\", type text}, {\"BsmtQual\", type text}, {\"BsmtCond\", type text}, {\"BsmtExposure\", type text}, {\"BsmtFinType1\", type text}, {\"BsmtFinSF1\", Int64.Type}, {\"BsmtFinType2\", type text}, {\"BsmtFinSF2\", Int64.Type}, {\"BsmtUnfSF\", Int64.Type}, {\"TotalBsmtSF\", Int64.Type}, {\"Heating\", type text}, {\"HeatingQC\", type text}, {\"CentralAir\", type text}, {\"Electrical\", type text}, {\"1stFlrSF\", Int64.Type}, {\"2ndFlrSF\", Int64.Type}, {\"LowQualFinSF\", Int64.Type}, {\"GrLivArea\", Int64.Type}, {\"BsmtFullBath\", Int64.Type}, {\"BsmtHalfBath\", Int64.Type}, {\"FullBath\", Int64.Type}, {\"HalfBath\", Int64.Type}, {\"BedroomAbvGr\", Int64.Type}, {\"KitchenAbvGr\", Int64.Type}, {\"KitchenQual\", type text}, {\"TotRmsAbvGrd\", Int64.Type}, {\"Functional\", type text}, {\"Fireplaces\", Int64.Type}, {\"FireplaceQu\", type text}, {\"GarageType\", type text}, {\"GarageYrBlt\", type number}, {\"GarageFinish\", type text}, {\"GarageCars\", Int64.Type}, {\"GarageArea\", Int64.Type}, {\"GarageQual\", type text}, {\"GarageCond\", type text}, {\"PavedDrive\", type text}, {\"WoodDeckSF\", Int64.Type}, {\"OpenPorchSF\", Int64.Type}, {\"EnclosedPorch\", Int64.Type}, {\"3SsnPorch\", Int64.Type}, {\"ScreenPorch\", Int64.Type}, {\"PoolArea\", Int64.Type}, {\"MiscVal\", Int64.Type}, {\"MoSold\", Int64.Type}, {\"YrSold\", Int64.Type}, {\"SaleType\", type text}, {\"SaleCondition\", type text}, {\"SalePrice\", Int64.Type}})",
+                "in",
+                "    #\"Değiştirilen Tür\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
